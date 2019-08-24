@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from 'styled-components';
+
+import globalStyles from './ui/globalStyles';
+
+import { openingHours } from './openingHours';
+
+// components
+import Flex from './ui/Flex';
+
+import OpeningHoursTable from './components/OpeningHoursTable';
+
+const GlobalStyle = createGlobalStyle`${globalStyles}`;
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Flex height="100%" justifyContent="center" alignItems="center">
+      <OpeningHoursTable days={openingHours} label="Opening hours" />
+
+      <GlobalStyle />
+    </Flex>
   );
-}
+};
 
 export default App;
