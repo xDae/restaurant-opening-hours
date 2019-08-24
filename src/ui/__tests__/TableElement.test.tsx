@@ -19,7 +19,7 @@ describe('Table Component', () => {
       sunday: []
     };
 
-    const label = "Some label";
+    const label = 'Some label';
 
     const { container, getByTestId, getAllByTestId } = render(
       <OpeningHoursTable days={openingHours} label={label} />
@@ -52,11 +52,11 @@ describe('Table Component', () => {
     const { debug, getByTestId, getAllByTestId } = render(
       <OpeningHoursTable days={openingHours} label="xxx" />
     );
-    
+
     expect(getByTestId('monday')).toHaveTextContent('monday');
     expect(getByTestId('opening-monday')).toHaveTextContent('10 AM - 6 PM');
   });
-  
+
   it('should shows two opening dates for a single day', () => {
     const openingHours: weekSchedule = {
       monday: [],
@@ -78,7 +78,7 @@ describe('Table Component', () => {
           value: 82800
         }
       ],
-      
+
       wednesday: [],
       thursday: [],
       friday: [],
@@ -91,7 +91,9 @@ describe('Table Component', () => {
     );
 
     expect(getByTestId('opening-monday')).toHaveTextContent('Closed');
-    expect(getByTestId('opening-tuesday')).toHaveTextContent('10 AM - 4 PM, 6 PM - 11 PM');
+    expect(getByTestId('opening-tuesday')).toHaveTextContent(
+      '10 AM - 4 PM, 6 PM - 11 PM'
+    );
   });
 
   it('should render the opening dates for multiple days (splited opening hours)', () => {
@@ -124,10 +126,12 @@ describe('Table Component', () => {
       thursday: [],
       friday: [],
       saturday: [],
-      sunday: [{
-        type: 'open',
-        value: 36000
-      }]
+      sunday: [
+        {
+          type: 'open',
+          value: 36000
+        }
+      ]
     };
 
     const { debug, getByTestId, getAllByTestId } = render(

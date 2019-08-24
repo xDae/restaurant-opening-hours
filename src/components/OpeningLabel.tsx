@@ -15,11 +15,14 @@ export const OpeningLabel = ({
   ...rest
 }: {
   openingHours: [number, number][] | [];
-}) => isEmpty(openingHours) ? (
-  <ClosedLabel {...rest}>Closed</ClosedLabel>
-) : (
-  // @ts-ignore
-  <OpenHourLabel {...rest}>{join(openingHours.map(convertToDate), ', ')}</OpenHourLabel>
+}) =>
+  isEmpty(openingHours) ? (
+    <ClosedLabel {...rest}>Closed</ClosedLabel>
+  ) : (
+    // @ts-ignore
+    <OpenHourLabel {...rest}>
+      {join(openingHours.map(convertToDate), ', ')}
+    </OpenHourLabel>
   );
 
 export default OpeningLabel;

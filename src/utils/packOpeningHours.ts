@@ -13,10 +13,10 @@ export type weekDay =
 interface event {
   type: 'open' | 'close';
   value: number;
-};
+}
 
 export type weekSchedule = {
-  [key in weekDay]: event[] | []
+  [key in weekDay]: event[] | [];
 };
 
 type timeRange = [number, number];
@@ -45,7 +45,7 @@ const packOpeningHours = (week: weekSchedule): daySchedule => {
     }
 
     // currentDayValues cannot be empty at this point ?
-    // @ts-ignore 
+    // @ts-ignore
     const opening: openingHours = currentDayValues.reduce(
       (acc: event[], hour: event, hourIndex: number) => {
         if (isEqual(hour.type, 'open')) {

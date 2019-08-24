@@ -18,7 +18,10 @@ const DayRow = ({ label, isToday, openingHours, ...rest }: DayRowProps) => (
       {isToday && <TodayLabel data-testid="isTodayLabel">Today</TodayLabel>}
     </Flex>
 
-    <OpeningLabel data-testid={`opening-${label}`} openingHours={openingHours} />
+    <OpeningLabel
+      data-testid={`opening-${label}`}
+      openingHours={openingHours}
+    />
   </TableRow>
 );
 
